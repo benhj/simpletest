@@ -1,4 +1,4 @@
-A extremely simple and lightweight C++ unit testng framework
+A extremely simple and lightweight C++ unit testing framework
 ------------------------------------------------------------
 
 - Provides a very simple assertion macro for testing simple program logic
