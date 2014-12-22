@@ -5,13 +5,13 @@
 // examples
 int testA()
 {
-    ASSERT_EQUAL(1, 1, "testA test 1");
-    ASSERT_EQUAL("hello", "goodbye", "testA test 2");
+    ASSERT_EQUAL(1, 1, "testA test 1");               // will pass
+    ASSERT_EQUAL("hello", "goodbye", "testA test 2"); // will fail
 }
 
 int testB()
 {
-    ASSERT_EQUAL((10 / 2), 5, "testB test 1");
+    ASSERT_EQUAL((10 / 2), 5, "testB test 1");        // will pass
 }
 
 int main()
