@@ -38,6 +38,10 @@ int testFailures = 0;
 int passedPoints = 0;
 std::vector<std::string> failingTestPoints;
 
+/// in the following macro, we compare on A and B and give a comment string, C
+/// For example
+/// ASSERT_EQUAL(a, b, "Test point");
+/// will compare the values of a and b
 #define ASSERT_EQUAL(A, B, C)                                          \
     if(A == B) {                                                       \
         std::cout<<boost::format("%1% %|100t|%2%\n") % C % "passed";   \

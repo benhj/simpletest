@@ -17,7 +17,7 @@ int testB()
 int main()
 {
 
-    // for timing how long tests take
+    // for timing how long tests take, add a boost progress timer
     {
         boost::progress_timer timer;
         testA();
