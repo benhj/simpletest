@@ -1,10 +1,11 @@
-A extremely simple C++ test framework
--------------------------------------
+A extremely simple and lightweight C++ unit testng framework
+------------------------------------------------------------
 
 - Provides a very simple assertion macro for testing simple program logic
-- For when far better frameworks (e.g. CPPUNIT, google..) are just too heavy...
+- It's as simple as just adding `ASSERT_EQUAL(a, b, "Comment");` to whatever you want to test
+- For when far better testing frameworks (e.g. CPPUNIT, google..) are just too heavy...
 
-To use, simply include SimpleTest.hpp. An example is shown in test.cpp.
+To use, simply include SimpleTest.hpp. Example usage is shown in test.cpp.
 Requires some of the boost headers (format and progress).
 
 Main caveat
