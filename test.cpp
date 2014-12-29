@@ -5,12 +5,14 @@
 // examples
 int testA()
 {
+    using namespace simpletest;
     ASSERT_EQUAL(1, 1, "testA test 1");               // will pass
     ASSERT_EQUAL("hello", "goodbye", "testA test 2"); // will fail
 }
 
 int testB()
 {
+    using namespace simpletest;
     ASSERT_EQUAL((10 / 2), 5, "testB test 1");        // will pass
 }
 
@@ -24,5 +26,5 @@ int main()
         testB();
     }
 
-    showResults();
+    simpletest::showResults();
 }

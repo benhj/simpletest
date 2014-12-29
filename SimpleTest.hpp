@@ -34,33 +34,39 @@
 #include <string>
 #include <vector>
 
-int testFailures = 0;
-int passedPoints = 0;
-std::vector<std::string> failingTestPoints;
+namespace simpletest {
 
-/// in the following macro, we compare on A and B and give a comment string, C
-/// For example
-/// ASSERT_EQUAL(a, b, "Test point");
-/// will compare the values of a and b
-#define ASSERT_EQUAL(A, B, C)                                          \
-    if(A == B) {                                                       \
-        std::cout<<boost::format("%1% %|100t|%2%\n") % C % "passed";   \
-        ++passedPoints;                                                \
-    } else {                                                           \
-        std::cout<<boost::format("%1% %|100t|%2%\n") % C % "failed";   \
-        ++testFailures;                                                \
-        failingTestPoints.push_back(C);                                \
+    int testFailures = 0;
+    int passedPoints = 0;
+    std::vector<std::string> failingTestPoints;
+
+    /// in the following macro, we compare on A and B and give a comment string, C
+    /// For example
+    /// ASSERT_EQUAL(a, b, "Test point");
+    /// will compare the values of a and b
+    template <typename A, typename B>
+    void ASSERT_EQUAL(A const &a, B const &b, std::string const &c)    
+    {                                     
+        if(a == b) {                                                       
+            std::cout<<boost::format("%1% %|100t|%2%\n") % c % "passed";  
+            ++passedPoints;                                               
+        } else {                                                          
+            std::cout<<boost::format("%1% %|100t|%2%\n") % c % "failed";  
+            ++testFailures;                                                
+            failingTestPoints.push_back(c);                               
+        }
     }
 
-void showResults()
-{
-    std::cout<<"\n\nThere were "<<testFailures<<"/"<<passedPoints<<" assertion failures\n\n"<<std::endl;
-    if (testFailures > 0) {
-        std::cout<<"The failures were:\n\n"<<std::endl;
-        for (auto const & it : failingTestPoints) {
-            std::cout<<it<<std::endl;
+    void showResults()
+    {
+        std::cout<<"\n\nThere were "<<testFailures<<"/"<<passedPoints<<" assertion failures\n\n"<<std::endl;
+        if (testFailures > 0) {
+            std::cout<<"The failures were:\n\n"<<std::endl;
+            for (auto const & it : failingTestPoints) {
+                std::cout<<it<<std::endl;
+            }
+            std::cout<<"\n\n"<<std::endl;
         }
-        std::cout<<"\n\n"<<std::endl;
     }
 }
 
