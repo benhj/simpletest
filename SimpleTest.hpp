@@ -40,7 +40,7 @@ namespace simpletest {
     int passedPoints = 0;
     std::vector<std::string> failingTestPoints;
 
-    /// in the following macro, we compare on A and B and give a comment string, C
+    /// in the function, we compare on A and B and give a comment string, C
     /// For example
     /// ASSERT_EQUAL(a, b, "Test point");
     /// will compare the values of a and b
@@ -57,9 +57,23 @@ namespace simpletest {
         }
     }
 
+    // a corresponding unequal function
+    template <typename A, typename B>
+    void ASSERT_UNEQUAL(A const &a, B const &b, std::string const &c)    
+    {                                     
+        if(a != b) {                                                       
+            std::cout<<boost::format("%1% %|100t|%2%\n") % c % "passed";  
+            ++passedPoints;                                               
+        } else {                                                          
+            std::cout<<boost::format("%1% %|100t|%2%\n") % c % "failed";  
+            ++testFailures;                                                
+            failingTestPoints.push_back(c);                               
+        }
+    }
+
     void showResults()
     {
-        std::cout<<"\n\nThere were "<<testFailures<<"/"<<passedPoints<<" assertion failures\n\n"<<std::endl;
+        std::cout<<"\n\nThere were "<<testFailures<<"/"<<(passedPoints + testFailures)<<" assertion failures\n\n"<<std::endl;
         if (testFailures > 0) {
             std::cout<<"The failures were:\n\n"<<std::endl;
             for (auto const & it : failingTestPoints) {
