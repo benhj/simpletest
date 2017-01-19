@@ -8,7 +8,7 @@ A extremely simple and lightweight C++ unit testing framework
 To use, simply include SimpleTest.hpp. Example usage is shown in test.cpp.
 Requires some of the boost headers (format and progress).
 
-See my other project, [teasafe](https://github.com/benhj/teasafe) for a real-world example of using 
+See my other project, [knoxcrypt](https://github.com/benhj/knoxcrypt) for a real-world example of using 
 simpletest for unit testing.
 
 Main caveat
