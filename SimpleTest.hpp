@@ -1,5 +1,5 @@
 /*
-  Copyright (c) <2014-2015>, <BenHJ>
+  Copyright (c) <2014-2017>, <BenHJ>
   All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
@@ -33,6 +33,7 @@
 #include <ctime>
 #include <string>
 #include <vector>
+#include <iostream>
 
 namespace simpletest {
 
